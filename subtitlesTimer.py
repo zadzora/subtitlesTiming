@@ -17,6 +17,7 @@ def Wooble(time, fileName):
 
     text = ''
     regex = '^[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3}'
+    toAdd = ".000000"
     oldTime = []
     newTime = []
     newFirst = []
@@ -40,12 +41,20 @@ def Wooble(time, fileName):
             second = second.group()
             second = str(second)
 
+            #print(first)
+            #print(second)
+
+            print("\n")
+
             date_time_first = datetime.datetime.strptime(first, '%H:%M:%S,%f')
             date_time_secnd = datetime.datetime.strptime(second, '%H:%M:%S,%f')
 
             finalFirstTime = date_time_first + datetime.timedelta(0, timeWooble)
-
             finalFirstTime = str(finalFirstTime)
+
+            if len(finalFirstTime) != 26:
+                finalFirstTime = finalFirstTime + toAdd
+
             finalFirstTime = finalFirstTime[12:-3]
             finalFirstTime = f"{'0'}{finalFirstTime}"
 
@@ -53,6 +62,10 @@ def Wooble(time, fileName):
             finalSecndTime = date_time_secnd + datetime.timedelta(0, timeWooble)
 
             finalSecndTime = str(finalSecndTime)
+
+            if len(finalSecndTime) != 26:
+                finalSecndTime = finalSecndTime + toAdd
+
             finalSecndTime = finalSecndTime[12:-3]
             finalSecndTime = f"{'0'}{finalSecndTime}"
 
@@ -67,6 +80,8 @@ def Wooble(time, fileName):
 
             # print(both)
             newTime.append(both)
+
+            #print(both)
 
 
     i = -1
