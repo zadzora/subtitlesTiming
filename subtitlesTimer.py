@@ -41,11 +41,6 @@ def Wooble(time, fileName):
             second = second.group()
             second = str(second)
 
-            #print(first)
-            #print(second)
-
-            print("\n")
-
             date_time_first = datetime.datetime.strptime(first, '%H:%M:%S,%f')
             date_time_secnd = datetime.datetime.strptime(second, '%H:%M:%S,%f')
 
@@ -101,6 +96,8 @@ def Wooble(time, fileName):
 
     with open(f'C:\\Users\\{username}\\Desktop\\' + new_file_name, 'w', encoding='iso-8859-1') as f:
         f.write(final_file)
+        print("DONE!")
+
 
 if __name__ == '__main__':
     Wooble(4, "sub")
