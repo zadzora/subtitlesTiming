@@ -31,9 +31,11 @@ def browseFiles():
 
 if __name__ == '__main__':
 
+
     # create window
     window = Tk()
-    window.geometry(str(500) + 'x' + str(300))
+    #window.geometry(str(500) + 'x' + str(300))
+    #window.minsize(450,200)
     window.title('Subtitle')
     window.resizable(False, False)
 
@@ -41,7 +43,7 @@ if __name__ == '__main__':
 
 
     # Create a File Explorer label
-    label_file_explorer = Label(window, text="Choose source file...", fg="blue")
+    label_file_explorer = Label(window, text="Choose source file...", font=('Verdana',8), fg="blue")
 
 #
     button_explore = Button(window,
@@ -49,7 +51,7 @@ if __name__ == '__main__':
                             command=browseFiles)
 
 
-    timeToMove_label = Label(window, text="Time", font=('Verdana', 10))
+    timeToMove_label = Label(window, text="Time", font=('Verdana', 10,'bold'))
     timeToMove_field = Entry(window)
 
 
@@ -67,14 +69,14 @@ if __name__ == '__main__':
                command=timeValue)
 
 
-    title_label.grid(column=2, row=1)
+    title_label.grid(column=1, row=1,pady=8)
     label_file_explorer.grid(column=1, row=2)
-    button_explore.grid(column=3, row=2)
+    button_explore.grid(column=0, row=3,padx=8)
 
-    timeToMove_label.grid(column=0, row=3)
+    timeToMove_label.grid(column=0, row=4)
 
-    s1.grid(column=1, row=3)
-    change_button.grid(column=2, row=5)
+    s1.grid(column=1, row=4)
+    change_button.grid(column=2, row=5,pady=8,padx=8)
 
 
     window.mainloop()
